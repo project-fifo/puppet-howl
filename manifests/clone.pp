@@ -5,7 +5,7 @@ class howl::clone {
     ensure  => directory,
     group   => root,
     owner   => root,
-    mode    => 0755,
+    mode    => '0755',
   }
 
   package { 'git':
