@@ -10,7 +10,16 @@ class howl::link {
     mode    => '0644',
   }
 
-  file { "${dest}/bin" :
+  file { "${dest}/etc" :
+    require => [ File[$dest], Exec['make_rel'] ],
+    ensure  => link,
+    target   => "${src}/etc",
+    group   => root,
+    owner   => root,
+    mode    => '0644',
+  }
+
+    file { "${dest}/bin" :
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => link,
     target   => "${src}/bin",
