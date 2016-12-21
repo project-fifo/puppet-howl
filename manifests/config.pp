@@ -2,7 +2,10 @@ class howl::config {
   $base = "/opt/local/fifo-howl"
   $file = "howl.conf"
   $conf = "/data/howl/etc/${file}"
-
+  $lenses = exec{ "ls -d -1 ${base}/lib/fifo_utils* | tail -1":
+    require => [ File["${base}/lib" ] ]
+  }
+  
   package { 'augeas':
     ensure => installed,
   }
@@ -22,7 +25,7 @@ class howl::config {
   }
   augeas { $file:
     require => [ File[$conf] ],
-    load_path => "${base}/lib/fifo_utils-0.1.30/priv/lenses",
+    load_path => $lenses,
     context   => "/files${conf}",
     changes   =>
     [

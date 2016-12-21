@@ -3,5 +3,4 @@ class howl::deps {
   package { 'coreutils':  ensure => installed }
   package { 'sudo':       ensure => installed }
   package { 'grep':       ensure => installed }
-
   }
