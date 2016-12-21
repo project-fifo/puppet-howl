@@ -1,4 +1,4 @@
-class git::clone {
+class howl::clone {
   $repo = 'howl'
   $owner = 'root'
   file { '/data/code' :
@@ -19,6 +19,6 @@ class git::clone {
     provider => git,
     require  => [ Package["git"] ],
     source   => "http://giturl.com/project-fifo/${repo}.git",
-    revision => 'master',
+    revision => 'test',
   }
   }
