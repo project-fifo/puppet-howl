@@ -10,11 +10,10 @@ class howl::link {
     mode    => '0644',
   }
 
-
   file { "${dest}/bin" :
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => link,
-    links   => "${src}/bin",
+    target   => "${src}/bin",
     group   => root,
     owner   => root,
     mode    => '0644',
@@ -23,7 +22,7 @@ class howl::link {
   file { "${dest}/erts-7.1" :
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => link,
-    links   => "${src}/erts-7.1",
+    target   => "${src}/erts-7.1",
     group   => root,
     owner   => root,
     mode    => '0644',
@@ -32,7 +31,7 @@ class howl::link {
   file { "${dest}/lib" :
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => link,
-    links   => "${src}/lib",
+    target   => "${src}/lib",
     group   => root,
     owner   => root,
     mode    => '0644',
@@ -41,7 +40,7 @@ class howl::link {
   file { "${dest}/releases" :
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => link,
-    links   => "${src}/releases",
+    target   => "${src}/releases",
     group   => root,
     owner   => root,
     mode    => '0644',
@@ -50,7 +49,7 @@ class howl::link {
     file { "${dest}/share" :
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => link,
-    links   => "${src}/share",
+    target   => "${src}/share",
     group   => root,
     owner   => root,
     mode    => '0644',
@@ -59,7 +58,7 @@ class howl::link {
   file { "${dest}/snmp" :
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => link,
-    links   => "${src}/lib",
+    target   => "${src}/lib",
     group   => root,
     owner   => root,
     mode    => '0644',
