@@ -1,11 +1,18 @@
 class howl::clone {
   $repo = 'howl'
   $owner = 'root'
+  file { '/data' :
+    ensure  => directory,
+    group   => root,
+    owner   => root,
+    mode    => '0644',
+  }
+
   file { '/data/code' :
     ensure  => directory,
     group   => root,
     owner   => root,
-    mode    => '0755',
+    mode    => '0644',
   }
 
   package { 'git':
