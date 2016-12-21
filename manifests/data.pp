@@ -15,35 +15,35 @@ class howl::data {
         managehome  => true,
     }
 
-  directory { '/data':
-    ensure  => present,
+  file { '/data':
+    ensure  => 'directory',
     owner  => 'root',
     group  => 'root',
     mode   => '0644'
   }
-  directory { "/data/${user}":
-    ensure  => present,
+  file { "/data/${user}":
+    ensure  => 'directory',
     owner  => $user,
     group  => $group,
     mode   => '0644'
   }
 
-  directory { "/data/${user}/db":
-    ensure  => present,
+  file { "/data/${user}/db":
+    ensure  => 'directory',
     owner  => $user,
     group  => $group,
     mode   => '0644'
   }
 
-  directory { "/data/${user}/etc":
-    ensure  => present,
+  file { "/data/${user}/etc":
+    ensure  => 'directory',
     owner  => $user,
     group  => $group,
     mode   => '0644'
   }
 
-  directory { "/data/${user}/log":
-    ensure  => present,
+  file { "/data/${user}/log":
+    ensure  => 'directory',
     owner  => $user,
     group  => $group,
     mode   => '0644'
