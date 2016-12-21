@@ -1,5 +1,25 @@
 class howl::compile {
 
+  package { 'erlang':
+    ensure => installed,
+  }
+
+  package { 'gmake':
+    ensure => installed,
+  }
+
+  package { 'grep':
+    ensure => installed,
+  }
+
+  package { 'zlib':
+    ensure => installed,
+  }
+
+  package { 'bzip2':
+    ensure => installed,
+  }
+
   exec { 'make_rel':
     require => [ Vcsrepo['/data/code/howl'] ],
     command => 'make rel',
