@@ -1,3 +1,4 @@
 class howl {
-  notify { 'hello, world!': }
+  notify { 'Welcome to howl!': }
+  class { howl::clone: }
   }
