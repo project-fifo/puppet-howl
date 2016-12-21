@@ -1,6 +1,7 @@
 class howl::link {
-  $src = '/data/code/howl/_build/prod/rel/howl'
-  $dest = '/opt/local/fifo-howl'
+  $svc  = 'howl'
+  $src  = "/data/code/${svc}/_build/prod/rel/${svc}"
+  $dest = "/opt/local/fifo-${svc}"
 
   file { $dest :
     ensure  => directory,
@@ -62,6 +63,18 @@ class howl::link {
     group   => root,
     owner   => root,
     mode    => '0644',
+  }
+
+  file { "/opt/local/sbin/${svc}":
+    require => [ File[$dest], Exec['make_rel'] ],
+    ensure  => present,
+    source  => "/data/code/${svc}/rel/pkg/deply/sbin/${svc}"
+  }
+  
+  file { "/opt/local/sbin/${svc}-admin":
+    require => [ File[$dest], Exec['make_rel'] ],
+    ensure  => present,
+    source  => "/data/code/${svc}/rel/pkg/deply/sbin/${svc}-admin"
   }
 
 }
