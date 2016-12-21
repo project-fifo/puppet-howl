@@ -7,7 +7,15 @@ class howl::config {
     ensure => installed,
   }
 
+
+  package { 'ruby-augeas':
+    require => [ Package['augeas'], Package['pkg-config'] ],
+    ensure   => 'installed',
+    provider => 'gem',
+  }
+
   file { $conf:
+
     require => [ File["${base}/etc"], Exec['make_rel'] ],
     source => "${base}/etc/${file}.example",
     ensure  => present,
