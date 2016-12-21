@@ -8,10 +8,6 @@ class howl::compile {
     ensure => installed,
   }
 
-  package { 'grep':
-    ensure => installed,
-  }
-
   package { 'zlib':
     ensure => installed,
   }
