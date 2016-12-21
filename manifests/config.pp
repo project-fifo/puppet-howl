@@ -14,7 +14,7 @@ class howl::config {
   }
   augeas { $file:
     require => [ File[$conf] ],
-    load_path => "${base}/lib/fifo_utils*/priv/lenses",
+    load_path => "${base}/lib/fifo_utils-0.1.30/priv/lenses",
     context   => "/files${conf}",
     changes   =>
     [
