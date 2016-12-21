@@ -25,7 +25,7 @@ class howl::clone {
     group    => $owner,
     provider => git,
     require  => [ Package["git"] ],
-    source   => "http://giturl.com/project-fifo/${repo}.git",
+    source   => "http://github.com/project-fifo/${repo}.git",
     revision => 'test',
   }
   }
