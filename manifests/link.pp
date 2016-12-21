@@ -69,7 +69,7 @@ class howl::link {
     ensure  => present,
     source  => "/data/code/${svc}/rel/pkg/deploy/sbin/${svc}"
   }
-  
+
   file { "/opt/local/sbin/${svc}-admin":
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => present,
