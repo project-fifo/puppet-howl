@@ -1,7 +1,7 @@
 class howl::clone {
   $repo = 'howl'
   $owner = 'root'
-  
+
   class { howl::data: }
 
   file { '/data/code' :
