@@ -2,7 +2,11 @@ class howl::config {
   $base = "/opt/local/fifo-howl"
   $file = "howl.conf"
   $conf = "/data/howl/etc/${file}"
-  
+
+  $ip        = $facts['ipaddress']
+  $port      = 4242
+  $ring_size = 64
+
   package { 'augeas':
     ensure => installed,
   }
@@ -26,7 +30,8 @@ class howl::config {
     context   => "/files${conf}",
     changes   =>
     [
-     "set ring_size 32",
+     "set ring_size ${ring_size}",
+     "set ip ${ip}:${port}",
      ]
   }
   }
