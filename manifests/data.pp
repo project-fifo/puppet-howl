@@ -10,7 +10,7 @@ class howl::data {
         gid     => $group,
         require => Group[$group],
         uid     => 2000,
-        home    => "/data/${username}",
+        home    => "/data/${user}",
         shell   => "/bin/false",
         managehome  => true,
   }
