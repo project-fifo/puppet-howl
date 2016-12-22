@@ -7,7 +7,10 @@ class howl::svcs {
   }
   service { "svc:/network/${svc}:default":
     require => [
-                File[ "/opt/local/fifo-${svc}/share/${svc}.xml" ],
+                Exec[ 'make_rel' ],
+                File[ "/opt/local/fifo-${svc}/share" ],
+                File[ "/opt/local/fifo-${svc}/bin" ],
+                File[ "/opt/local/fifo-${svc}/lib" ],
                 Augeas[ "howl.conf" ],
                 ],
     manifest => "/opt/local/fifo-${svc}/share/${svc}.xml",
