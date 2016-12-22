@@ -1,5 +1,6 @@
 class howl {
-  notify { "Welcome to howl@${facts['networking']['ip']}": }
+  $ip = $facts['networking']['ip']
+  notify { "Welcome to howl@${ip}": }
 
   class { howl::deps:    }
   class { howl::clone:   }
