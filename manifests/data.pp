@@ -5,7 +5,7 @@ class howl::data {
     ensure  => present
   }
 
-  user { $group:
+  user { $user:
         ensure  => present,
         gid     => $group,
         require => Group[$group],
@@ -13,7 +13,12 @@ class howl::data {
         home    => "/data/${username}",
         shell   => "/bin/false",
         managehome  => true,
-    }
+  }
+
+  exec { 'user_privs':
+    require => [ User[$user] ],
+    command => "/usr/sbin/usermod -K defaultpriv=basic,net_privaddr ${user}"
+  }
 
   file { '/data':
     ensure  => 'directory',
