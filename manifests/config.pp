@@ -32,6 +32,8 @@ class howl::config {
     [
      "set ring_size ${ring_size}",
      "set ip ${ip}:${port}",
+     "set listening_ip ${ip}",
+     "set nodename howl@${ip}",
      ]
   }
   }
