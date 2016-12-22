@@ -7,6 +7,7 @@ class howl::svcs {
   }
   service { "svc:/network/${svc}:default":
     require => [
+                Service[ 'svc:/pkgsrc/epmd:default' ],
                 Exec[ 'make_rel' ],
                 File[ "/opt/local/fifo-${svc}/share" ],
                 File[ "/opt/local/fifo-${svc}/bin" ],
