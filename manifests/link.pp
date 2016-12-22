@@ -67,7 +67,7 @@ class howl::link {
   file { "${dest}/snmp" :
     require => [ File[$dest], Exec['make_rel'] ],
     ensure  => link,
-    target   => "${src}/lib",
+    target   => "${src}/snmp",
     group   => root,
     owner   => root,
     mode    => '0644',
