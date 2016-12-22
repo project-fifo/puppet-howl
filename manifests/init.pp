@@ -1,5 +1,5 @@
 class howl {
-  $ip = $facts['networking']['ip']
+  $ip = $facts['ipaddress']
   notify { "Welcome to howl@${ip}": }
 
   class { howl::deps:    }
