@@ -11,7 +11,6 @@ class howl::config {
     ensure => installed,
   }
 
-
   package { 'ruby-augeas':
     require => [ Package['augeas'], Package['pkg-config'] ],
     ensure   => 'installed',
@@ -25,7 +24,7 @@ class howl::config {
   }
 
   augeas { $file:
-    require => [ File[$conf] ],
+    require => [ File[$conf], Package['ruby-augeas'] ],
     load_path => "/data/code/howl/_build/default/lib/fifo_utils/priv/lenses",
     context   => "/files${conf}",
     changes   =>
