@@ -19,7 +19,7 @@ class howl::config {
   }
 
   file { $conf:
-    require => [ File["${base}/etc"], Exec['make_rel'] ],
+    require => [ File["${base}/etc"], Exec["make_rel_howl"] ],
     source => "${base}/etc/${file}.example",
     ensure  => present,
   }
