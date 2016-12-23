@@ -1,5 +1,5 @@
 class howl::svcs {
-  class { fifo_test::svcs:
+  fifo_test::svcs{'howl':
     svc     => 'howl',
     require => [
                 Exec[ 'user_privs_howl' ],
