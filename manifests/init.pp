@@ -6,7 +6,7 @@ class howl {
   class { howl::config:  }
   class { howl::svcs:  }
 
-  exec { 'user_privs':
+  exec { 'user_privs_howl':
     require => [ User[$user] ],
     command => "/usr/sbin/usermod -K defaultpriv=basic,net_privaddr ${user}"
   }
