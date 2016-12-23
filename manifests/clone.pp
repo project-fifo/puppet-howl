@@ -1,3 +1,3 @@
 class howl::clone {
-  class {fifo_test::clone: repo => 'howl'}
+  fifo_test::clone{ 'howl': repo => 'howl' }
   }
