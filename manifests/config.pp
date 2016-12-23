@@ -7,16 +7,8 @@ class howl::config {
   $port      = 4242
   $ring_size = 64
 
-  package { 'augeas':
-    ensure => installed,
-  }
-
-  package { 'ruby-augeas':
-    require => [ Package['augeas'], Package['pkg-config'] ],
-    ensure   => 'installed',
-    provider => 'gem',
-  }
-
+  include fifo_test::config
+  
   file { $conf:
     require => [ File["${base}/etc"], Exec["make_rel_howl"] ],
     source => "${base}/etc/${file}.example",
