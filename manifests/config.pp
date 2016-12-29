@@ -28,8 +28,6 @@ class howl::config {
      "set nodename howl@${ip}",
      "set audit on",
      "set ddb_connection.backend_server ${ddb}:5555",
-     "set idx.pg.backend_host 192.168.1.47",
-     "set idx.backend dqe_idx_pg",
      ]
   }
   }
