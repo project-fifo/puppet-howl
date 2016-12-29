@@ -26,8 +26,8 @@ class howl::config {
      "set ip ${ip}:${port}",
      "set listening_ip ${ip}",
      "set nodename howl@${ip}",
-     "set audit on"
-     "set ddb_connection.backend_host ${ddb}"
+     "set audit on",
+     "set ddb_connection.backend_host ${ddb}",
      ]
   }
   }
