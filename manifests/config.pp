@@ -6,6 +6,7 @@ class howl::config {
   $ip        = $facts['ipaddress']
   $port      = 4242
   $ring_size = 64
+  $ddb       = '192.168.1.44'
 
   include fifo_test::config
   
@@ -25,6 +26,8 @@ class howl::config {
      "set ip ${ip}:${port}",
      "set listening_ip ${ip}",
      "set nodename howl@${ip}",
+     "set audit on"
+     "set ddb_connection.backend_host ${ddb}"
      ]
   }
   }
