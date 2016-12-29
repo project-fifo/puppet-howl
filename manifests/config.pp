@@ -9,7 +9,7 @@ class howl::config {
   $ddb       = '192.168.1.44'
 
   include fifo_test::config
-  
+
   file { $conf:
     require => [ File["${base}/etc"], Exec["make_rel_howl"] ],
     source => "${base}/etc/${file}.example",
@@ -27,7 +27,9 @@ class howl::config {
      "set listening_ip ${ip}",
      "set nodename howl@${ip}",
      "set audit on",
-     "set ddb_connection.backend_host ${ddb}",
+     "set ddb_connection.backend_server ${ddb}:5555",
+     "set idx.pg.backend_host 192.168.1.47",
+     "set idx.backend dqe_idx_pg",
      ]
   }
   }
